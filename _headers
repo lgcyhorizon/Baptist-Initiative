@@ -1,0 +1,32 @@
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# HTML pages: revalidate every load so deploys land immediately
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS / JS: short cache + must-revalidate so new deploys are picked up.
+# (The HTML appends a ?v=N query when content changes, which also busts the cache.)
+/assets/css/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/assets/js/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Fonts & images rarely change — keep long-cached
+/assets/fonts/*
+  Cache-Control: public, max-age=2592000
+  Access-Control-Allow-Origin: *
+
+/assets/img/*
+  Cache-Control: public, max-age=2592000
+
+/assets/logos/*
+  Cache-Control: public, max-age=2592000
