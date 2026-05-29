@@ -1,0 +1,13 @@
+# Cloudflare Pages redirects
+# Legacy WordPress paths from the old site -> new structure
+/about-us            /about/                    301
+/about-us/           /about/                    301
+/training            /training/                 301
+/training/           /training/                 301
+/blog                /resources/                301
+/blog/               /resources/                301
+/what-counseling-is  /about/#philosophy         301
+/what-counseling-is/ /about/#philosophy         301
+
+# Trailing slash normalization (Cloudflare Pages handles most of this automatically;
+# add explicit rules here if you discover any 404s after launch)
